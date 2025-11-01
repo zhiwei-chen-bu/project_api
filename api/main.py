@@ -6,16 +6,8 @@ app = FastAPI(
     version="1.0.0",
     description="API for vocabulary practice and learning"
 )
-
-@app.get("/api/word")
-def get_random_word():
-    """Get a random word"""
-    # TODO Write logic here....
-    return {
-        "word": "example",
-        "definition": "a representative form or pattern",
-        "difficulty_level": "Beginner"
-    }
+from app.routers import words
+app.include_router(words.router , prefix="/api" , tags = ["words"])
 
 @app.get("/")
 def read_root():
