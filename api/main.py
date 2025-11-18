@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from app.schemas import WordResponse
 from app.database import engine, Base
+from app.models import PracticeSubmission
 
+
+Base.metadata.create_all(bind=engine)
 # Initialize FastAPI app
 app = FastAPI(
     title="Vocabulary Practice API",

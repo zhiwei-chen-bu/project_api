@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import List
+from typing import Optional
 
 
 class WordResponse(BaseModel):
@@ -42,3 +43,20 @@ class HistoryItem(BaseModel):
 
     class Config:
         from_attributes = True
+
+class PracticeSubmissionCreate(BaseModel):
+    user_id: int
+    word_id: int
+    submitted_sentence: str
+    score: Optional[float] = None
+
+class PracticeSubmissionResponse(BaseModel):
+    id: int
+    user_id: int
+    word_id: int
+    submitted_sentence: str
+    score: float
+    timestamp: datetime
+
+    class Config:
+        orm_mode = True

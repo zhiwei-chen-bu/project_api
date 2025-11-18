@@ -44,3 +44,7 @@ def mock_ai_validation(sentence: str, target_word: str, difficulty: str) -> dict
         "suggestion": suggestion,
         "corrected_sentence": sentence  # In production, AI would correct this
     }
+
+def check_sentence(user_sentence: str, correct_word: str) -> float:
+
+    return 100.0 if correct_word in user_sentence else 0.0
