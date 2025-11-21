@@ -56,6 +56,7 @@ class PracticeSubmissionResponse(BaseModel):
     word_id: int
     submitted_sentence: str
     score: float
+    suggestion: str 
     timestamp: datetime
 
     class Config:

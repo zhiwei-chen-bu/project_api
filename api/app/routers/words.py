@@ -57,23 +57,28 @@ def create_practice_submission(submission: PracticeSubmissionCreate, db: Session
         target_word=word.word,
         difficulty='Intermediate'
     )
-    
+    score_raw = result.get("score", 0.0)
+    try:
+        score_value = float(score_raw)
+    except (TypeError, ValueError):
+        score_value = 0.0
+
     db_submission = PracticeSubmission(
-        user_id=submission.user_id,
-        word_id=submission.word_id,
-        submitted_sentence=submission.submitted_sentence,
-        score=result["score"]
-    )
+    user_id=submission.user_id,
+    word_id=submission.word_id,
+    submitted_sentence=submission.submitted_sentence,
+    score=score_value
+)
     db.add(db_submission)
     db.commit()
     db.refresh(db_submission)
     
     return PracticeSubmissionResponse(
-        id=db_submission.id,
-        user_id=db_submission.user_id,
-        word_id=db_submission.word_id,
-        submitted_sentence=db_submission.submitted_sentence,
-        score=db_submission.score,
-        suggestion=result["suggestion"],
-        timestamp=str(db_submission.timestamp)
-    )
+    id=db_submission.id,
+    user_id=db_submission.user_id,
+    word_id=db_submission.word_id,
+    submitted_sentence=db_submission.submitted_sentence,
+    score=float(db_submission.score),
+    suggestion=result["suggestion"], 
+    timestamp=db_submission.timestamp
+)
