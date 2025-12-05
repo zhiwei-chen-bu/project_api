@@ -1,3 +1,36 @@
+# Vocabulary Practice API Workshop
+
+FastAPI + MySQL + Docker – Workshop Template สำหรับสร้าง REST API พร้อม Database และรองรับการเชื่อมต่อกับ Frontend
+
+## เกี่ยวกับ Workshop
+
+Workshop นี้ออกแบบมาเพื่อสอนนักศึกษา/ผู้เรียนสร้างแอปฝึกภาษาอังกฤษ (Vocabulary Practice) แบบ Full-Stack โดยใช้เทคโนโลยีสมัยใหม่ เหมาะกับ Term Project หรือ Mini Project ด้าน:
+
+- ✅ Vocabulary Learning
+- ✅ Language Practice / Writing Practice
+- ✅ การทดลอง Integrate AI ตรวจประโยค
+
+**เทคโนโลยีหลัก**
+
+- FastAPI – RESTful API + Auto-documentation
+- MySQL – Relational Database
+- Docker Compose – จัดการ Service ทั้ง API + DB
+- SQLAlchemy ORM – เข้าถึงและจัดการข้อมูลด้วย Python
+
+---
+
+## โครงสร้างโปรเจกต์ (Project Structure)
+
+โครงสร้างหลักของ repo นี้:
+
+```text
+project_api/
+├─ api/                # โค้ด FastAPI + SQLAlchemy
+├─ init.sql            # สร้าง Database / Tables / Sample Data
+├─ docker-compose.yml  # รัน API + MySQL ด้วย Docker
+├─ .gitignore
+└─ README.md
+
 Quick Start
 Prerequisites
 
